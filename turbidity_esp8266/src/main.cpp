@@ -17,7 +17,7 @@
 
 #define MAYOR 1
 #define MINOR 0
-#define PATCH 7
+#define PATCH 10
 #define WIFI_SSID "JAVI"
 #define WIFI_PASS "xavier1234"
 // MQTT
@@ -112,13 +112,10 @@ void loop()
 
       volt = round_to_dp(volt, 2);
       volt_2 = volt;
+      ntu = abs(2.08-volt)*336.53;
       if (volt < 0.1)
       {
         ntu = 700;
-      }
-      else
-      {
-        ntu = -400.142 * sq(volt) + 2105.51 * volt - 1596.06;
       }
       if (ntu < 0)
         ntu = 700;
